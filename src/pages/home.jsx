@@ -4,6 +4,7 @@ import styles from "./home.module.css";
 import { IoCalendarSharp } from "react-icons/io5";
 import FAQAccordion from "../components/FAQAccordion";
 import Footer from "../components/footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const conferenceFaqs = [
@@ -38,8 +39,7 @@ const Home = () => {
         </h2>
 
         <div className={styles.buttons}>
-          <button className={styles.primaryButton}>Register Now</button>
-          <button className={styles.secondaryButton}>Submit Your Paper</button>
+          <Link to="/register"><button className={styles.primaryButton}>Register Now</button></Link>
         </div>
       </section>
 
