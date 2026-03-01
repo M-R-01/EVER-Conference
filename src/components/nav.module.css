@@ -1,0 +1,147 @@
+/* NAVBAR */
+
+.navbar {
+  background: #ffffff;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* CONTAINER */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoImage {
+  height: 52px;
+}
+
+.nittImage {
+  height: 52px;
+}
+
+/* DESKTOP LINKS */
+
+.links {
+  display: flex;
+  gap: 32px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #1b1b1b;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Animated underline */
+.links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -6px;
+  background-color: #0d4d2d;
+  transition: width 0.3s ease;
+}
+
+.links a:hover {
+  color: #0d4d2d;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+/* MOBILE MENU BUTTON */
+
+.menuButton {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hamburger Bars */
+
+.bar,
+.barActive {
+  width: 24px;
+  height: 2px;
+  background: #0d4d2d;
+  transition: all 0.3s ease;
+}
+
+.barActive:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+
+.barActive:nth-child(2) {
+  opacity: 0;
+}
+
+.barActive:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* MOBILE MENU */
+
+.mobileMenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.mobileMenu a {
+  padding: 14px 24px;
+  text-decoration: none;
+  color: #1b1b1b;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.mobileMenu a:hover {
+  background: #f4fff4;
+  color: #0d4d2d;
+}
+
+.mobileMenuOpen {
+  max-height: 300px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+}

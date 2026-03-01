@@ -1,0 +1,312 @@
+/* GLOBAL SPACING */
+.section {
+    padding: 5rem 8rem;
+}
+
+/* HERO */
+
+.hero {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    background: linear-gradient(135deg, #f4fff4 0%, #e6f5e6 100%);
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #0d4d2d;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 500;
+    max-width: 900px;
+    line-height: 1.5;
+    color: #1b1b1b;
+}
+
+/* BUTTONS */
+
+.buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.primaryButton {
+    background-color: #0d4d2d;
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondaryButton {
+    background: transparent;
+    color: #0d4d2d;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    border: 2px solid #0d4d2d;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.primaryButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.secondaryButton:hover {
+    background: #0d4d2d;
+    color: white;
+}
+
+/* ABOUT */
+
+.aboutSection {
+    padding: 5rem 8rem;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+.aboutSection h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #0d4d2d;
+}
+
+/* SECTION TITLES */
+
+.sectionTitle {
+    font-size: 2.2rem;
+    color: #0d4d2d;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* TIMELINE */
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 90%;
+    height: 3px;
+    background: #0d4d2d;
+    z-index: 0;
+}
+
+.timelineItem {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    width: 280px;
+    z-index: 1;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* THEMES */
+
+.themesSection {
+    padding: 5rem 8rem;
+    background: #f9fdf9;
+}
+
+.themesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.themeCard {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.themeCard h3 {
+    margin-bottom: 1.5rem;
+    color: #0d4d2d;
+}
+
+.themeCard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.themeCard li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.themeCard li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #0d4d2d;
+    font-weight: bold;
+}
+
+/* SPEAKERS */
+
+.speakerSection {
+    padding: 5rem 8rem;
+    text-align: center;
+}
+
+.comingSoon {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 1rem;
+}
+
+/* ============================= */
+/* ========= RESPONSIVE ======== */
+/* ============================= */
+
+/* Large Tablets */
+@media (max-width: 1200px) {
+
+    .section,
+    .themesSection,
+    .aboutSection,
+    .speakerSection {
+        padding: 4rem 4rem;
+    }
+
+    .timeline {
+        gap: 2rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+
+    .tagline {
+        font-size: 3rem;
+    }
+
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .timeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .timelineItem {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .themesGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .hero {
+        height: auto;
+        padding: 6rem 1.5rem;
+    }
+
+    .tagline {
+        font-size: 2.4rem;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+    }
+
+    .section,
+    .themesSection,
+    .aboutSection,
+    .speakerSection {
+        padding: 3rem 1.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.8rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .themeCard {
+        padding: 2rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+    .tagline {
+        font-size: 2rem;
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .aboutSection h2 {
+        font-size: 1.8rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.5rem;
+    }
+}

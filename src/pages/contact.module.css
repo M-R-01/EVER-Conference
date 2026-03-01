@@ -1,0 +1,132 @@
+/* ================= HERO ================= */
+
+.hero {
+    text-align: center;
+    padding: 5rem 2rem 3rem 2rem;
+    background: linear-gradient(135deg, #f4fff4 0%, #e6f5e6 100%);
+}
+
+.title {
+    font-size: 3rem;
+    color: #0d4d2d;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+/* ================= CONTACT SECTION ================= */
+
+.contactSection {
+    padding: 4rem 8rem;
+}
+
+/* CONTAINER */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 2em;
+}
+
+/* CARD */
+
+.card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e5e5;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* ROLE */
+
+.role {
+    font-size: 1.1rem;
+    color: #0d4d2d;
+    margin-bottom: 0.5rem;
+}
+
+/* NAME */
+
+.name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1b1b1b;
+}
+
+/* PHONE */
+
+.phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+/* EMAIL */
+
+.emailBox {
+    background: #0d4d2d;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+    .contactSection {
+        padding: 4rem 4rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .contactSection {
+        padding: 3rem 1.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .emailBox {
+        border-radius: 16px;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
