@@ -15,13 +15,35 @@ const Register = () => {
     transactionId: "",
     track: "",
     theme: "",
+    paperTitle: "",
     agree: false,
   });
 
   const tracks = {
-    "AI & ML": ["Deep Learning", "Generative AI", "Edge AI"],
-    Sustainability: ["Green Manufacturing", "Carbon Capture", "EV Tech"],
-    Robotics: ["Industrial Robotics", "Humanoid Systems", "Automation"],
+    "Energy Harvesting": [
+      "Solar Energy Innovations",
+      "New trends in wind energy",
+      "Hybrid Energy Systems",
+      "Energy storage and Grid",
+      "AI-based Energy Management",
+      "Thermoelectric & Piezoelectric Harvesting",
+      "Waste Energy Recovery Systems",
+      "Advanced Material Science",
+      "Self-powered IoT & Battery-less Sensing",
+    ],
+    "EV Mobility Trends": [
+      "Advanced Battery Technology",
+      "Battery Management Systems",
+      "Power Electronics & Drives",
+      "EV Charging Infrastructure",
+      "Smart and AI integration",
+      "Innovations in hybrid vehicles",
+      "Sustainability and Quality",
+      "Safety and security",
+      "Sustainable Manufacturing Lifecycle",
+      "Hybrid energy storage control",
+      "Fast Charging Protocols",
+    ],
   };
 
   const handleChange = (e) => {
@@ -88,6 +110,7 @@ const Register = () => {
             </li>
           </ul>
         </div>
+
         <form className={styles.formCard} onSubmit={handleSubmit}>
           <div className={styles.grid}>
             <div className={styles.inputGroup}>
@@ -135,6 +158,18 @@ const Register = () => {
                   ))}
                 </select>
               </div>
+            )}
+
+            {formData.track && (
+            <div className={styles.inputGroup}>
+              <label>Paper Title</label>
+              <input
+                type="text"
+                name="paperTitle"
+                required
+                onChange={handleChange}
+              />
+            </div>
             )}
           </div>
 
