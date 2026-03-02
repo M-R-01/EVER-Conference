@@ -1,0 +1,172 @@
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 5rem 2rem 3rem 2rem;
+  background: linear-gradient(135deg, #f4fff4 0%, #e6f5e6 100%);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: #0d4d2d;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  color: #555;
+}
+
+/* ================= TERMS & CONDITIONS ================= */
+
+.termsBox {
+  background: #f9fdf9;
+  border-left: 4px solid #0d4d2d;
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.termsBox h3 {
+  color: #0d4d2d;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.termsBox ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.termsBox li {
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* SECTION */
+.section {
+  padding: 4rem 8rem;
+}
+
+/* FORM CARD */
+.formCard {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+  max-width: 900px;
+  margin: auto;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* INPUT GROUP */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup label {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: #0d4d2d;
+  font-weight: 500;
+}
+
+input,
+select {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #0d4d2d;
+  box-shadow: 0 0 0 3px rgba(13, 77, 45, 0.1);
+}
+
+/* RADIO */
+.radioSection {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* AMOUNT */
+.amountBox {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f4fff4;
+  border-left: 4px solid #0d4d2d;
+  font-weight: 600;
+}
+
+/* PAYMENT */
+.paymentSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* CHECKBOX */
+.checkbox {
+  display: flex;
+  gap: 0.6rem;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+
+/* BUTTON */
+.submitButton {
+  width: 100%;
+  padding: 14px;
+  border-radius: 50px;
+  border: none;
+  background: #0d4d2d;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(13, 77, 45, 0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .section {
+    padding: 4rem 4rem;
+  }
+
+  .grid,
+  .paymentSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .formCard {
+    padding: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
