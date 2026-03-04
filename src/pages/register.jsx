@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import Navbar from "../components/nav";
 import Footer from "../components/footer";
 import styles from "./register.module.css";
-import qr from "../assets/qr.jpg"
+import qr from "../assets/qr.jpg";
 import api from "./api";
 
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     type: "individual",
     college: "",
     department: "",
@@ -67,6 +68,7 @@ const Register = () => {
     try {
       const response = await api.post("/api/register", {
         NAME: formData.name,
+        EMAIL: formData.email,
         COLLEGE: formData.college,
         DEPARTMENT: formData.department,
         TEAM_SIZE: formData.type === "team" ? formData.teamSize : 1,
@@ -105,28 +107,75 @@ const Register = () => {
 
           <ul>
             <li>
-              Registration is confirmed only after successful payment
-              verification.
+              Registration will be considered valid only after successful
+              payment and verification of the transaction details submitted in
+              the registration form.
             </li>
+
             <li>
-              The registration fee is non-refundable once payment has been made.
+              All participants must ensure that the payment transaction
+              reference ID and payer details provided during registration are
+              accurate. Incorrect or unverifiable payment details may lead to
+              rejection of the registration.
             </li>
-            <li>Participants must submit valid payment transaction details.</li>
+
             <li>
-              The organizing committee reserves the right to reject incomplete
-              or invalid registrations.
+              The registration fee is strictly non-refundable under any
+              circumstances once the registration has been submitted and payment
+              has been made.
             </li>
+
             <li>
-              All participants are expected to maintain professional and ethical
-              conduct during the conference.
+              Participants registering as a team may designate one member to
+              complete the registration on behalf of the group. However, the
+              total number of participants in the team must be clearly specified
+              during registration.
             </li>
+
             <li>
-              Selected papers may be published in the official conference
-              proceedings.
+              Details of all team members will be collected during on-site
+              registration at the conference venue. Teams must ensure that the
+              number of participants matches the number specified during online
+              registration.
             </li>
+
             <li>
-              The organizing committee reserves the right to make changes to the
-              schedule if necessary.
+              Participants submitting research papers must upload or submit
+              their final paper in the prescribed conference format before the
+              specified submission deadline. The Application ID generated during
+              registration must be clearly mentioned in the paper submission.
+            </li>
+
+            <li>
+              Failure to submit the research paper within the announced deadline
+              or in the required format may result in the paper not being
+              considered for review or presentation.
+            </li>
+
+            <li>
+              The organizing committee reserves the right to accept or reject
+              any paper submission that does not meet the academic or formatting
+              requirements of the conference.
+            </li>
+
+            <li>
+              All participants are expected to maintain professional conduct
+              throughout the conference. Any behavior deemed inappropriate by
+              the organizing committee may result in removal from the event
+              without refund.
+            </li>
+
+            <li>
+              The organizing committee reserves the right to make modifications
+              to the conference schedule, program, or event format if necessary.
+            </li>
+
+            <li>
+              Participants are strongly advised to clarify any doubts regarding
+              registration, payment, paper submission, or participation before
+              completing their registration. All queries should be directed to
+              the organizing team through the contact details provided on the
+              Contact page of this website.
             </li>
           </ul>
         </div>
@@ -136,6 +185,16 @@ const Register = () => {
             <div className={styles.inputGroup}>
               <label>Full Name</label>
               <input type="text" name="name" required onChange={handleChange} />
+            </div>
+
+            <div className={styles.inputGroup}>
+              <label>Email Address</label>
+              <input
+                type="email"
+                name="email"
+                required
+                onChange={handleChange}
+              />
             </div>
 
             <div className={styles.inputGroup}>
@@ -239,11 +298,7 @@ const Register = () => {
 
             <div className={styles.qrContainer}>
               {/* Replace src later with your QR image */}
-              <img
-                src={qr}
-                alt="Payment QR Code"
-                className={styles.qrImage}
-              />
+              <img src={qr} alt="Payment QR Code" className={styles.qrImage} />
             </div>
 
             <p className={styles.qrNote}>
