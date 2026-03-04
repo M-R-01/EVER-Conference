@@ -112,6 +112,48 @@ select:focus {
   font-weight: 600;
 }
 
+/* QR PAYMENT SECTION */
+
+.qrSection {
+  margin: 2rem 0 2.5rem 0;
+  text-align: center;
+  padding: 2rem;
+  background: #f9fdf9;
+  border-radius: 16px;
+  border: 1px solid #e6f2e9;
+}
+
+.qrSection h3 {
+  color: #0d4d2d;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.qrContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.qrImage {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+  padding: 10px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.qrNote {
+  font-size: 0.9rem;
+  color: #555;
+  max-width: 500px;
+  margin: auto;
+  line-height: 1.6;
+}
+
 /* PAYMENT */
 .paymentSection {
   display: grid;

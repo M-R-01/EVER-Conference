@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Navbar from "../components/nav";
 import Footer from "../components/footer";
 import styles from "./register.module.css";
+import qr from "../assets/qr.jpg"
+import api from "./api";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -59,15 +61,33 @@ const Register = () => {
 
   const amount = 1000 * teamSize;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.agree) {
-      alert("You must agree to the terms and conditions.");
-      return;
-    }
 
-    console.log({ ...formData, amount });
-    alert("Form submitted successfully!");
+    try {
+      const response = await api.post("/api/register", {
+        NAME: formData.name,
+        COLLEGE: formData.college,
+        DEPARTMENT: formData.department,
+        TEAM_SIZE: formData.type === "team" ? formData.teamSize : 1,
+        AMOUNT: 1000 * (formData.type === "team" ? formData.teamSize : 1),
+        PAYER_NAME: formData.payerName,
+        PAYER_NUMBER: formData.payerNumber,
+        TRN_REF_ID: formData.transactionId,
+        TRACK: formData.track,
+        THEME: formData.theme,
+        TITLE: formData.paperTitle,
+      });
+
+      const { application_id } = response.data;
+
+      alert(
+        `Registration Successful! Your Application ID is ${application_id}`,
+      );
+    } catch (error) {
+      console.error(error);
+      alert(error.response?.data?.error || "Something went wrong");
+    }
   };
 
   return (
@@ -161,15 +181,15 @@ const Register = () => {
             )}
 
             {formData.track && (
-            <div className={styles.inputGroup}>
-              <label>Paper Title</label>
-              <input
-                type="text"
-                name="paperTitle"
-                required
-                onChange={handleChange}
-              />
-            </div>
+              <div className={styles.inputGroup}>
+                <label>Paper Title</label>
+                <input
+                  type="text"
+                  name="paperTitle"
+                  required
+                  onChange={handleChange}
+                />
+              </div>
             )}
           </div>
 
@@ -212,6 +232,25 @@ const Register = () => {
           )}
 
           <div className={styles.amountBox}>Amount to be Paid: ₹{amount}</div>
+
+          {/* QR PAYMENT SECTION */}
+          <div className={styles.qrSection}>
+            <h3>Scan & Pay</h3>
+
+            <div className={styles.qrContainer}>
+              {/* Replace src later with your QR image */}
+              <img
+                src={qr}
+                alt="Payment QR Code"
+                className={styles.qrImage}
+              />
+            </div>
+
+            <p className={styles.qrNote}>
+              Scan the QR code using any UPI app (GPay / PhonePe / Paytm). After
+              completing the payment, enter the transaction details below.
+            </p>
+          </div>
 
           {/* PAYMENT DETAILS */}
           <div className={styles.paymentSection}>
