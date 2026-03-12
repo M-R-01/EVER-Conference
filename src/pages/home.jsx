@@ -18,9 +18,14 @@ const Home = () => {
         "Yes. Registration details and fee structure are available on the Registration page.",
     },
     {
-      question: "Will selected papers be published?",
+      question: "Where should I submit my paper?",
       answer:
-        "Accepted papers will be published in the official conference proceedings.",
+        "Papers can be mailed to us at evernitt2324@gmail.com with attaching the Application ID provided to you during registration.",
+    },
+    {
+      question: "Where do I pay the accomodation fees?",
+      answer:
+        "Accomodation fees will be collected on-site during the conference. A form will be shared with you later to confirm your accommodation details and preferences. Please note that accommodation is limited and will be allocated on a first-come, first-served basis. We recommend confirming your accommodation as soon as possible to secure your spot.",
     },
   ];
 
@@ -39,7 +44,9 @@ const Home = () => {
         </h2>
 
         <div className={styles.buttons}>
-          <Link to="/register"><button className={styles.primaryButton}>Register Now</button></Link>
+          <Link to="/register">
+            <button className={styles.primaryButton}>Register Now</button>
+          </Link>
         </div>
       </section>
 
@@ -89,7 +96,7 @@ const Home = () => {
               <li>Solar Energy Innovations</li>
               <li>New trends in wind energy</li>
               <li>Hybrid Energy Systems</li>
-              <li>Energy storage and Grid</li> 
+              <li>Energy storage and Grid</li>
               <li>AI-based Energy Management</li>
               <li>Thermoelectric & Piezoelectric Harvesting</li>
               <li>Waste Energy Recovery Systems</li>
