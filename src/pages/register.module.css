@@ -187,6 +187,189 @@ select:focus {
   box-shadow: 0 10px 25px rgba(13, 77, 45, 0.2);
 }
 
+/* CATEGORY SELECT */
+
+.categorySection {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.categorySection label {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: #0d4d2d;
+  font-weight: 500;
+}
+
+/* BILLING BOX */
+
+.billingBox {
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 16px;
+  background: #f9fdf9;
+  border: 1px solid #e6f2e9;
+}
+
+.billingBox h3 {
+  color: #0d4d2d;
+  margin-bottom: 1rem;
+}
+
+.billTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.billTable td {
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 0.95rem;
+}
+
+.billTable td:last-child {
+  text-align: right;
+  font-weight: 500;
+}
+
+.totalRow td {
+  font-weight: 700;
+  color: #0d4d2d;
+  border-bottom: none;
+  font-size: 1.05rem;
+}
+
+/* PAYMENT FORM LINK BOX */
+
+.paymentFormBox{
+  margin: 2rem 0;
+  padding: 2rem;
+  background:#f9fdf9;
+  border:1px solid #e6f2e9;
+  border-radius:16px;
+  text-align:center;
+}
+
+.paymentFormBox h3{
+  color:#0d4d2d;
+  margin-bottom:8px;
+}
+
+.paymentFormBox p{
+  color:#555;
+  margin-bottom:14px;
+  font-size:0.95rem;
+}
+
+/* BUTTON-LIKE LINK */
+
+.paymentLink{
+  display:inline-block;
+  padding:12px 20px;
+  background:#0d4d2d;
+  color:white;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.2s;
+}
+
+.paymentLink:hover{
+  background:#0a3a22;
+  transform:translateY(-1px);
+}
+
+
+/* ================= SUCCESS OVERLAY ================= */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  backdrop-filter:blur(4px);
+}
+
+.modal{
+  background:white;
+  padding:40px 36px;
+  border-radius:20px;
+  text-align:center;
+  max-width:420px;
+  width:90%;
+  box-shadow:0 25px 60px rgba(0,0,0,0.2);
+  animation:popIn 0.25s ease;
+}
+
+@keyframes popIn{
+  from{
+    transform:scale(0.9);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+/* SUCCESS ICON */
+
+.successIcon{
+  width:70px;
+  height:70px;
+  background:#e6f6ec;
+  color:#0d8a3a;
+  font-size:36px;
+  font-weight:bold;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 18px;
+}
+
+/* APP ID BOX */
+
+.appId{
+  margin:12px 0 16px;
+  font-size:22px;
+  font-weight:700;
+  color:#0d4d2d;
+  background:#f4fff4;
+  padding:10px 18px;
+  border-radius:10px;
+  display:inline-block;
+}
+
+/* NOTE */
+
+.note{
+  font-size:14px;
+  color:#555;
+  margin-bottom:24px;
+}
+
+/* BUTTON */
+
+.modalBtn{
+  background:#0d4d2d;
+  color:white;
+  border:none;
+  padding:12px 26px;
+  border-radius:999px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.modalBtn:hover{
+  background:#0a3a22;
+}
+
 /* RESPONSIVE */
 @media (max-width: 992px) {
   .section {
@@ -212,3 +395,4 @@ select:focus {
     font-size: 2rem;
   }
 }
+

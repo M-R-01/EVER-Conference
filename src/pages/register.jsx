@@ -9,6 +9,7 @@ const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    category: "student",
     type: "individual",
     college: "",
     department: "",
@@ -19,8 +20,10 @@ const Register = () => {
     track: "",
     theme: "",
     paperTitle: "",
+    accommodation: false, // ✅ NEW
     agree: false,
   });
+  const [successData, setSuccessData] = useState(null);
 
   const tracks = {
     "Energy Harvesting": [
@@ -49,6 +52,12 @@ const Register = () => {
     ],
   };
 
+  const fees = {
+    student: 1000,
+    faculty: 2000,
+    industry: 5000,
+  };
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -60,7 +69,9 @@ const Register = () => {
   const teamSize =
     formData.type === "individual" ? 1 : Number(formData.teamSize);
 
-  const amount = 1000 * teamSize;
+  const baseFee = fees[formData.category] * teamSize;
+  const gst = baseFee * 0.18;
+  const totalAmount = baseFee + gst;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,20 +83,18 @@ const Register = () => {
         COLLEGE: formData.college,
         DEPARTMENT: formData.department,
         TEAM_SIZE: formData.type === "team" ? formData.teamSize : 1,
-        AMOUNT: 1000 * (formData.type === "team" ? formData.teamSize : 1),
-        PAYER_NAME: formData.payerName,
-        PAYER_NUMBER: formData.payerNumber,
-        TRN_REF_ID: formData.transactionId,
+        AMOUNT: totalAmount,
+        CATEGORY: formData.category,
+        GST: gst,
         TRACK: formData.track,
         THEME: formData.theme,
         TITLE: formData.paperTitle,
+        ACCOMMODATION: formData.accommodation,
       });
 
       const { application_id } = response.data;
 
-      alert(
-        `Registration Successful! Your Application ID is ${application_id}`,
-      );
+      setSuccessData({ application_id });
     } catch (error) {
       console.error(error);
       alert(error.response?.data?.error || "Something went wrong");
@@ -252,6 +261,21 @@ const Register = () => {
             )}
           </div>
 
+          <div className={styles.categorySection}>
+            <label>Participant Category</label>
+
+            <select
+              name="category"
+              onChange={handleChange}
+              value={formData.category}
+              required
+            >
+              <option value="student">Student</option>
+              <option value="faculty">Faculty</option>
+              <option value="industry">Industry</option>
+            </select>
+          </div>
+
           {/* PARTICIPATION TYPE */}
           <div className={styles.radioSection}>
             <label>
@@ -290,7 +314,40 @@ const Register = () => {
             </div>
           )}
 
-          <div className={styles.amountBox}>Amount to be Paid: ₹{amount}</div>
+          <div className={styles.billingBox}>
+            <h3>Registration Fee Summary</h3>
+
+            <table className={styles.billTable}>
+              <tbody>
+                <tr>
+                  <td>Participant Category</td>
+                  <td>{formData.category.toUpperCase()}</td>
+                </tr>
+
+                <tr>
+                  <td>Base Registration Fee</td>
+                  <td>
+                    ₹{fees[formData.category]} × {teamSize}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Subtotal</td>
+                  <td>₹{baseFee.toFixed(2)}</td>
+                </tr>
+
+                <tr>
+                  <td>GST (18%)</td>
+                  <td>₹{gst.toFixed(2)}</td>
+                </tr>
+
+                <tr className={styles.totalRow}>
+                  <td>Total Amount Payable</td>
+                  <td>₹{totalAmount.toFixed(2)}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           {/* QR PAYMENT SECTION */}
           <div className={styles.qrSection}>
@@ -307,42 +364,42 @@ const Register = () => {
             </p>
           </div>
 
-          {/* PAYMENT DETAILS */}
-          <div className={styles.paymentSection}>
-            <div className={styles.inputGroup}>
-              <label>Payer Name</label>
-              <input
-                type="text"
-                name="payerName"
-                required
-                onChange={handleChange}
-              />
-            </div>
+          <div className={styles.paymentFormBox}>
+            <h3>Submit Payment Details</h3>
 
-            <div className={styles.inputGroup}>
-              <label>UPI Number</label>
-              <input
-                type="tel"
-                name="payerNumber"
-                required
-                onChange={handleChange}
-              />
-            </div>
+            <p>
+              After completing your payment, please upload your payment proof
+              and details using the Google Form below.
+            </p>
 
-            <div className={styles.inputGroup}>
-              <label>Transaction Reference ID</label>
-              <input
-                type="text"
-                name="transactionId"
-                required
-                onChange={handleChange}
-              />
-            </div>
+            <a
+              href="https://forms.gle/GXi8jnETNKzyB2qT8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.paymentLink}
+            >
+              Open Payment Submission Form →
+            </a>
           </div>
 
           <label className={styles.checkbox}>
-            <input type="checkbox" name="agree" onChange={handleChange} />I
-            agree to the Terms and Conditions
+            <input
+              type="checkbox"
+              name="accommodation"
+              checked={formData.accommodation}
+              onChange={handleChange}
+            />
+            I require accommodation during the conference
+          </label>
+
+          <label className={styles.checkbox}>
+            <input
+              type="checkbox"
+              name="agree"
+              onChange={handleChange}
+              required
+            />
+            I agree to the Terms and Conditions
           </label>
 
           <button type="submit" className={styles.submitButton}>
@@ -351,6 +408,30 @@ const Register = () => {
         </form>
       </section>
 
+      {successData && (
+        <div className={styles.overlay}>
+          <div className={styles.modal}>
+            <div className={styles.successIcon}>✓</div>
+
+            <h2>Registration Successful</h2>
+
+            <p>Your Application ID</p>
+
+            <div className={styles.appId}>{successData.application_id}</div>
+
+            <p className={styles.note}>
+              Please save this ID for future communication and paper submission.
+            </p>
+
+            <button
+              className={styles.modalBtn}
+              onClick={() => setSuccessData(null)}
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      )}
       <Footer />
     </div>
   );
