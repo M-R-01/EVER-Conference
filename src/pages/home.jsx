@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/nav";
 import styles from "./home.module.css";
 import { IoCalendarSharp } from "react-icons/io5";
+import SpeakerCard from "../components/SpeakerCard";
 import FAQAccordion from "../components/FAQAccordion";
 import Footer from "../components/footer";
 import { Link } from "react-router-dom";
@@ -127,9 +128,27 @@ const Home = () => {
       {/* SPEAKERS */}
       <section className={styles.speakerSection}>
         <h2 className={styles.sectionTitle}>Speakers</h2>
-        <p className={styles.comingSoon}>
-          Keynote speakers will be announced soon.
-        </p>
+        <p className={styles.comingSoon}>Speakers will be announced soon!</p>
+        {/* <div className={styles.speakersGrid}>
+          <SpeakerCard
+            image="/images/speaker1.jpg"
+            name="Dr. Jane Smith"
+            title="Professor"
+            organization="University of Green Energy"
+            talk="The Future of Solar Energy Harvesting"
+            keynote
+            profileLink="https://www.linkedin.com/in/janesmith"
+          />
+
+          <SpeakerCard
+            image="/images/speaker2.jpg"
+            name="Dr. John Doe"
+            title="Senior Researcher"
+            organization="EV Innovations Lab"
+            talk="Advancements in Battery Technology for EVs"
+            profileLink="https://www.linkedin.com/in/johndoe"
+          />
+        </div>*/}
       </section>
 
       {/* FAQ */}

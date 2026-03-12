@@ -192,6 +192,16 @@
     margin-top: 1rem;
 }
 
+.speakersGrid {
+  display: grid;
+
+  /* Auto-wrap responsive columns */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 32px;
+  margin-top: 24px;
+}
+
 /* ============================= */
 /* ========= RESPONSIVE ======== */
 /* ============================= */

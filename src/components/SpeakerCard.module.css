@@ -1,0 +1,123 @@
+.card {
+  position: relative;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  transition: 0.25s ease;
+  max-width: 320px;
+  margin: auto;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+/* Keynote badge */
+
+.badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #0d4d2d;
+  color: white;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+/* Image */
+
+.imageWrapper {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: #f4fff4;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content */
+
+.content {
+  padding: 20px;
+  text-align: center;
+}
+
+.name {
+  font-size: 20px;
+  color: #0d4d2d;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.org {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+/* Talk box */
+
+.talkBox {
+  background: #f9fdf9;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.talkLabel {
+  font-size: 12px;
+  color: #0d4d2d;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.talk {
+  font-size: 13px;
+  color: #444;
+}
+
+/* Profile button */
+
+.profileBtn {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: #0d4d2d;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.profileBtn:hover {
+  background: #0a3a22;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .imageWrapper {
+    height: 220px;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+}

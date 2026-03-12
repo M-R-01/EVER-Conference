@@ -84,9 +84,6 @@ export default async function handler(req, res) {
         <strong>Registration Category:</strong> ${data.CATEGORY?.toUpperCase()}
       </p>
 
-      <p>
-        Your payment will be verified within <strong>12 hours</strong>.
-      </p>
 
       <!-- Payment Form Reminder -->
       <div style="background:#fff8e6;border-left:5px solid #e0a800;padding:15px;margin:20px 0;border-radius:5px;">
